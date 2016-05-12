@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SetATrap</string>
+    <string name="title_activity_board_diplay">BoardDisplay</string>
+</resources>
