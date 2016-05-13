@@ -1,73 +1,41 @@
 package com.isep.setatrap.setatrap;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+
+import android.app.Activity;
 import android.os.Bundle;
 import org.jdom2.*;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
-
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Iterator;
-import java.util.List;
+import java.io.InputStream;
 
-
-public class BoardDisplay extends AppCompatActivity {
-    static org.jdom2.Document document;
-    static Element racine;
-
+public class BoardDisplay extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        lire("res/layout/activity_board_display.xml");
+        lire("src/main/res/layout/activity_board_display.xml");
         System.out.println("après lire");
         setContentView(R.layout.activity_board_display);
     }
 
-    public static void createBouton() {
-
-        XMLOutputter outputter = new XMLOutputter();
-        try {
-
-            Element bouton = new Element("button");
-
-            Attribute width = new Attribute("layout_width", "wrap_content");
-            Attribute height = new Attribute("layout_height", "wrap_content");
-            Attribute text = new Attribute("text", "ca marche");
-
-            bouton.setAttribute(width);
-            bouton.setAttribute(height);
-            bouton.setAttribute(text);
-
-            racine.addContent(bouton);
-            outputter.output(bouton, System.out);
-
-        } catch (IOException e) {
-        }
-    }
-
-
-    public static void lire(String fichier)
+    public void lire(String fichier)
     {
         try
         {
-            System.out.println("etape 1");
             SAXBuilder saxBuilder = new SAXBuilder();
-            System.out.println("etape 2");
+            System.out.println("Ouverture fichier");
 
-            document = saxBuilder.build(new File(fichier));
+            //File file = new File(fichier);
+            InputStream file = this.getAssets().open("activity_board_display.xml") ;
+            FileInputStream inFile = getResources().getXml(R.layout.activity_board_display);
+            System.out.println("après ouverture");
+            Document document = saxBuilder.build(file);
 
-            System.out.println("etape 3");
             Element racine = document.getRootElement();
-            System.out.println("etape 4");
             Element gridLayout = racine.getChild("GridLayout");
-
             Element firstButton = new Element("Button");
             firstButton.setAttribute("id","@+id/firstButton");
             firstButton.setAttribute("layout_width","wrap_content");
@@ -77,27 +45,11 @@ public class BoardDisplay extends AppCompatActivity {
             XMLOutputter xmlOutput = new XMLOutputter();
             xmlOutput.setFormat(Format.getPrettyFormat());
             xmlOutput.output(document, new FileWriter(fichier));
-            System.out.println("etape 5");
 
         }
         catch(Exception e){
             System.out.println(e);
         }
 
-    }
-
-
-
-    public static void enregistre(String fichier)
-    {
-        try
-        {
-            //On utilise ici un affichage classique avec getPrettyFormat()
-            XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
-            //Remarquez qu'il suffit simplement de créer une instance de FileOutputStream
-            //avec en argument le nom du fichier pour effectuer la sérialisation.
-            sortie.output(document, new FileOutputStream(fichier));
-        }
-        catch (java.io.IOException e){}
     }
 }
