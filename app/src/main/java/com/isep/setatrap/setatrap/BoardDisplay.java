@@ -1,25 +1,57 @@
 package com.isep.setatrap.setatrap;
 
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
+import android.util.Xml;
+import android.view.Gravity;
+import android.widget.GridLayout;
+import android.widget.TextView;
+
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.*;
+
+
+import java.util.List;
+
+
 import org.jdom2.*;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
+import org.xmlpull.v1.XmlSerializer;
+
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 public class BoardDisplay extends Activity {
+    private GridLayout myGridLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        lire("src/main/res/layout/activity_board_display.xml");
-        System.out.println("après lire");
-        setContentView(R.layout.activity_board_display);
+        //setContentView(R.layout.activity_board_display);
+        DrawPieces board = new DrawPieces(this);
+        board.getHolder().setFixedSize(50, 50);
+        setContentView(board);
     }
+
+
 
     public void lire(String fichier)
     {
@@ -29,10 +61,12 @@ public class BoardDisplay extends Activity {
             System.out.println("Ouverture fichier");
 
             //File file = new File(fichier);
-            InputStream file = this.getAssets().open("activity_board_display.xml") ;
-            FileInputStream inFile = getResources().getXml(R.layout.activity_board_display);
+            InputStream file = this.getAssets().open("/mnt/sdcard/activity_board_display.xml") ;
+           // FileInputStream inFile = getResources().getXml(R.layout.activity_board_display);
             System.out.println("après ouverture");
+
             Document document = saxBuilder.build(file);
+            System.out.println("après sax");
 
             Element racine = document.getRootElement();
             Element gridLayout = racine.getChild("GridLayout");
@@ -52,4 +86,5 @@ public class BoardDisplay extends Activity {
         }
 
     }
+
 }

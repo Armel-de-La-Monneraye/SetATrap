@@ -1,11 +1,263 @@
-<?xml version="1.0" encoding="utf-8"?>
-<GridLayout android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_alignLeft="@+id/textView"
-    android:useDefaultMargins="false"
-    android:alignmentMode="alignBounds"
-    android:columnCount="4"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <GridLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/gridView"
+        android:useDefaultMargins="false"
+        android:alignmentMode="alignBounds"
+        android:columnCount="7"
+        android:rowCount="8"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="18dp"
+        android:paddingTop="70dp"
+        >
+
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="1"
+            android:layout_column="1"/>
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="1"
+            android:layout_column="2"/>
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="1"
+            android:layout_column="3"/>
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="1"
+            android:layout_column="4"/>
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="1"
+            android:layout_column="5"
+            />
 
 
-</GridLayout>
+
+
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="2"
+            android:layout_column="1"/>
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="2"
+            android:layout_column="2"/>
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="2"
+            android:layout_column="3"/>
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="2"
+            android:layout_column="4"/>
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="2"
+            android:layout_column="5"
+            />
+
+
+
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="3"
+            android:layout_column="1"/>
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="3"
+            android:layout_column="2"/>
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="3"
+            android:layout_column="3"/>
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="3"
+            android:layout_column="4"/>
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="3"
+            android:layout_column="5"
+            />
+
+
+
+
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="4"
+            android:layout_column="1"/>
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="4"
+            android:layout_column="2"/>
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="4"
+            android:layout_column="3"/>
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="4"
+            android:layout_column="4"/>
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="4"
+            android:layout_column="5"
+            />
+
+
+
+
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="5"
+            android:layout_column="1"/>
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="5"
+            android:layout_column="2"/>
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="5"
+            android:layout_column="3"/>
+        <ImageView
+
+            android:src="@drawable/carre_gris"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="5"
+            android:layout_column="4"/>
+        <ImageView
+
+            android:src="@drawable/carre_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="5"
+            android:layout_column="5"
+            />
+
+
+
+
+        <ImageView
+
+            android:src="@drawable/mario"
+            android:id="@+id/mario"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_row="1"
+            android:layout_column="1"/>
+
+        <Button
+            android:id="@+id/boutonMario"
+            android:text="Mario"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_column="3"
+            android:layout_row="7"/>
+
+    </GridLayout>
+</RelativeLayout>
