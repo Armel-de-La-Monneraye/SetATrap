@@ -1,7 +1,11 @@
 package com.isep.setatrap.setatrap;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -11,9 +15,18 @@ import android.view.SurfaceView;
  */
 public class DrawPieces extends SurfaceView implements SurfaceHolder.Callback {
     private SurfaceHolder mHolder = null;
+    private Bitmap bitmap;
+    private float x,y;
+    private Paint paint;
 
     public DrawPieces(Context context){
         super(context);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.mario);
+        paint = new Paint();
+        paint.setColor(Color.parseColor("#12345678"));
+
+        x = 50.0f;
+        y = 50.0f;
         init();
     }
     public DrawPieces(Context context,AttributeSet attrs){
@@ -28,10 +41,12 @@ public class DrawPieces extends SurfaceView implements SurfaceHolder.Callback {
     public void init(){
         mHolder = getHolder();
         mHolder.addCallback(this);
+        DrawThread drawThread = new DrawThread();
+        drawThread.start();
     }
 
     protected void onDraw(Canvas canvas){
-
+        canvas.drawBitmap(bitmap, x, y, paint);
     }
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
@@ -49,6 +64,7 @@ public class DrawPieces extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     private class DrawThread extends Thread {
+
         boolean keepDrawing = true;
 
         public void run(){
@@ -57,7 +73,9 @@ public class DrawPieces extends SurfaceView implements SurfaceHolder.Callback {
                 try{
                     canvas = mHolder.lockCanvas();
                     synchronized(mHolder){
-                        onDraw(canvas);
+                        if (canvas != null) {
+                            onDraw(canvas);
+                        }
                     }
 
                 }

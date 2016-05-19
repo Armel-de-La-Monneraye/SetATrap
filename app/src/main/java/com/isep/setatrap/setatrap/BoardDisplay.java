@@ -3,6 +3,7 @@ package com.isep.setatrap.setatrap;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -47,7 +48,6 @@ public class BoardDisplay extends Activity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_board_display);
         DrawPieces board = new DrawPieces(this);
-        board.getHolder().setFixedSize(50, 50);
         setContentView(board);
     }
 
