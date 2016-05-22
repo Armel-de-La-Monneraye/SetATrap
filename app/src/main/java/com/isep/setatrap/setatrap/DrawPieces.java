@@ -9,6 +9,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.Button;
+import android.widget.ImageView;
 
 /**
  * Created by Armel on 19/05/2016.
@@ -16,17 +18,35 @@ import android.view.SurfaceView;
 public class DrawPieces extends SurfaceView implements SurfaceHolder.Callback {
     private SurfaceHolder mHolder = null;
     private Bitmap bitmap;
+    private Bitmap resizedBitmap;
+    private Bitmap bitmapOrange;
+    private Bitmap resizedBitmapOrange;
+    private Bitmap resizedBitmapGris;
+    private Bitmap bitmapGris;
+    private Bitmap bitmapBouton;
     private float x,y;
     private Paint paint;
 
     public DrawPieces(Context context){
         super(context);
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.mario);
+        resizedBitmap = Bitmap.createScaledBitmap(bitmap, 100, 100, false);
+
+        bitmapOrange = BitmapFactory.decodeResource(getResources(), R.drawable.carre_orange);
+        resizedBitmapOrange = Bitmap.createScaledBitmap(bitmapOrange, 200, 200, false);
+
+        bitmapGris = BitmapFactory.decodeResource(getResources(), R.drawable.carre_gris);
+        resizedBitmapGris = Bitmap.createScaledBitmap(bitmapGris, 200, 200, false);
+
+        Button bouton = (Button)findViewById(R.id.boutonMario);
+        bitmapBouton = BitmapFactory.decodeResource(getResources(), R.id.boutonMario);
+
+
         paint = new Paint();
         paint.setColor(Color.parseColor("#12345678"));
 
         x = 50.0f;
-        y = 50.0f;
+        y = 200.0f;
         init();
     }
     public DrawPieces(Context context,AttributeSet attrs){
@@ -46,7 +66,22 @@ public class DrawPieces extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     protected void onDraw(Canvas canvas){
-        canvas.drawBitmap(bitmap, x, y, paint);
+
+        for(int i=0; i<5; ++i){
+            for(int j=0; j<5; ++j){
+                if((i+j)%2 == 0 ){
+                    canvas.drawBitmap(resizedBitmapGris, x+j*200, y+i*200, paint);
+                }else{
+                    canvas.drawBitmap(resizedBitmapOrange, x+j*200, y+i*200, paint);
+                }
+            }
+
+        }
+        canvas.drawBitmap(resizedBitmap, x+50, y+50, paint);
+
+
+
+
     }
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
